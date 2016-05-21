@@ -29,7 +29,7 @@ RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/ap
   php5-zlib && \
   mv -f /etc/php/conf.d/*.ini /etc/php5/conf.d && \
   mv -f /usr/lib/php/modules/*.so /usr/lib/php5/modules && \
-  sed -i "s|extension=|zend_extension=|" /etc/php5/conf.d/xdebug.ini && \
+  rm -f /etc/php5/conf.d/xdebug.ini && \
   sed -i -e "s|;daemonize\s*=.*|daemonize = no|" \
     -e "s|listen\s*=.*|listen = 9000|" \
     /etc/php5/php-fpm.conf && \
@@ -38,6 +38,8 @@ RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/ap
     -e "s|post_max_size\s*=.*|post_max_size = 100M|" \
     -e "s|;cgi.fix_pathinfo\s*=.*|cgi.fix_pathinfo = 1|" \
     /etc/php5/php.ini
+
+COPY config/xdebug.ini /etc/php5/conf.d/
 
 EXPOSE 9000
 
