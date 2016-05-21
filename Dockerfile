@@ -27,12 +27,17 @@ RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/ap
   php-xdebug@testing \
   php5-zip \
   php5-zlib && \
-  sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php5/php-fpm.conf && \
-  sed -i -e "s/listen\s*=\s*127.0.0.1:9000/listen = 9000/g" /etc/php5/php-fpm.conf && \
-  sed -i "s|upload_max_filesize =.*|upload_max_filesize = 100M|" /etc/php5/php.ini && \
-  sed -i "s|max_file_uploads =.*|max_file_uploads = 50|" /etc/php5/php.ini && \
-  sed -i "s|post_max_size =.*|post_max_size = 100M|" /etc/php5/php.ini && \
-  sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=1/" /etc/php5/php.ini
+  mv -f /etc/php/conf.d/*.ini /etc/php5/conf.d && \
+  mv -f /usr/lib/php/modules/*.so /usr/lib/php5/modules && \
+  sed -i "s|extension=|zend_extension=|" /etc/php5/conf.d/xdebug.ini && \
+  sed -i -e "s|;daemonize\s*=.*|daemonize = no|" \
+    -e "s|listen\s*=.*|listen = 9000|" \
+    /etc/php5/php-fpm.conf && \
+  sed -i -e "s|upload_max_filesize\s*=.*|upload_max_filesize = 100M|" \
+    -e "s|max_file_uploads\s*=.*|max_file_uploads = 50|" \
+    -e "s|post_max_size\s*=.*|post_max_size = 100M|" \
+    -e "s|;cgi.fix_pathinfo\s*=.*|cgi.fix_pathinfo = 1|" \
+    /etc/php5/php.ini
 
 EXPOSE 9000
 
