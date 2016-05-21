@@ -1,7 +1,7 @@
 # PHP-FPM Docker Image on Alpine
 
 
-This is a simple PHP-FPM installation running on Alpine Linux. It utilizes the official alpine:3.3 release and installs PHP packages via apk, the Alpine Linux package manager. Please see the Dockerfile for a list of PHP packages installed.
+This is a simple PHP-FPM installation running on Alpine Linux. It utilizes the official alpine:edge release and installs PHP packages via apk, the Alpine Linux package manager. Please see the Dockerfile for a list of PHP packages installed.
 
 This image is created to enhance my own workflow. You are more than welcome to use it, if you are interested.
 
