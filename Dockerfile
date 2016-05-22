@@ -46,4 +46,4 @@ COPY config/xdebug.ini /etc/php5/conf.d/
 
 EXPOSE 9000
 
-ENTRYPOINT ["/usr/bin/php-fpm"]
+CMD ["/usr/bin/php-fpm"]
