@@ -35,15 +35,18 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/reposit
   rm -f /etc/php5/conf.d/xdebug.ini && \
   sed -i -e "s|;daemonize\s*=.*|daemonize = no|" \
     -e "s|listen\s*=.*|listen = 9000|" \
-    -e "s|;catch_workers_output\s*=.*|catch_workers_output = yes|" \
     /etc/php5/php-fpm.conf && \
   sed -i -e "s|upload_max_filesize\s*=.*|upload_max_filesize = 100M|" \
     -e "s|max_file_uploads\s*=.*|max_file_uploads = 50|" \
     -e "s|post_max_size\s*=.*|post_max_size = 100M|" \
     -e "s|;cgi.fix_pathinfo\s*=.*|cgi.fix_pathinfo = 1|" \
-    /etc/php5/php.ini
+    /etc/php5/php.ini && \
+  mkdir -p /var/www/app/webroot
 
+COPY info.php /var/www/app/webroot/
 COPY config/xdebug.ini /etc/php5/conf.d/
+
+VOLUME ["/var/www"]
 
 EXPOSE 9000
 
