@@ -21,7 +21,7 @@ For a more interesting example, you can inject your own codebase into the `/var/
 
 ## XDebug
 
-After much trial and error, I have discovered that the `php-debug` package for Atom will not listen on the 172.x.x.x network created by `docker-compose`. In order to get XDebug working with Atom, I had to supply a different IP address for my debug client in the `xdebug.ini` file. Please see the comments in this file to get XDebug working with your client.
+After much trial and error, I have discovered that the `php-debug` package for Atom will not listen on the 172.x.x.x network created by `docker-compose`. In order to get XDebug working with Atom, I had to supply a different IP address for my debug client in the `xdebug.ini` file. Please see the comments in this file to get XDebug working with your client. I am using the beta Mac OS X native Docker tools. YMMV.
 
 ## Maintainer
 
