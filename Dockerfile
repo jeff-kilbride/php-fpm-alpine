@@ -1,9 +1,6 @@
-FROM alpine:edge
+FROM alpine:3.4
 
 MAINTAINER Jeff Kilbride <jeff@kilbride.com>
-
-WORKDIR /root
-COPY .profile .
 
 RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
   apk add --no-cache php5-fpm \
@@ -13,22 +10,21 @@ RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/ap
   php5-curl \
   php5-exif \
   php5-ftp \
-  php-geoip@testing \
+  php5-gd \
+  php5-geoip@testing \
   php5-imagick \
   php5-json \
   php5-mcrypt \
-  php-memcached@testing \
+  php5-memcached@testing \
   php5-mysqli \
   php5-opcache \
   php5-openssl \
   php5-pdo_mysql \
   php5-phpmailer \
-  php-redis@testing \
-  php-xdebug@testing \
+  php5-redis@testing \
+  php5-xdebug@testing \
   php5-zip \
   php5-zlib && \
-  mv -f /etc/php/conf.d/*.ini /etc/php5/conf.d && \
-  mv -f /usr/lib/php/modules/*.so /usr/lib/php5/modules && \
   rm -f /etc/php5/conf.d/xdebug.ini && \
   sed -i -e "s|;daemonize\s*=.*|daemonize = no|" \
     -e "s|listen\s*=.*|listen = 9000|" \
@@ -38,10 +34,12 @@ RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/ap
     -e "s|post_max_size\s*=.*|post_max_size = 100M|" \
     -e "s|;cgi.fix_pathinfo\s*=.*|cgi.fix_pathinfo = 1|" \
     /etc/php5/php.ini && \
+  mv /etc/profile.d/color_prompt /etc/profile.d/color_prompt.sh && \
   mkdir -p /var/www/app/webroot
 
 COPY info.php /var/www/app/webroot/
 COPY config/xdebug.ini /etc/php5/conf.d/
+COPY aliases.sh /etc/profile.d/
 
 VOLUME ["/var/www"]
 
