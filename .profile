@@ -4,7 +4,7 @@ alias mv='mv -iv'
 alias rm='rm -iv'
 
 # Better listing commands
-alias less='less -MNE~'
+alias less='less -EIMN~'
 alias more=less
 alias ll='ls -lFah --color=auto'
 
@@ -20,7 +20,7 @@ alias ...='cd ../../'
 # Better mkdir
 alias mkdir='mkdir -pv'
 
-# Color grep
+# Better grep
 alias grep='grep -in'
 
 # Use vi keybindings
