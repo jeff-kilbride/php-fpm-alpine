@@ -2,7 +2,7 @@
 
 [![](https://imagelayers.io/badge/jkilbride/php-fpm-alpine:latest.svg)](https://imagelayers.io/?images=jkilbride/php-fpm-alpine:latest 'Get your own badge on imagelayers.io')
 
-This is a simple PHP-FPM installation running on Alpine Linux. It utilizes the official alpine:edge release and installs PHP packages via apk, the Alpine Linux package manager. Please see the Dockerfile for a list of PHP packages installed.
+This is a simple PHP-FPM installation running on Alpine Linux. It utilizes the official alpine:3.4 release and installs PHP packages via apk, the Alpine Linux package manager. Please see the Dockerfile for a list of PHP packages installed.
 
 This image is created to enhance my own workflow. You are more than welcome to use it, if you are interested.
 
@@ -11,7 +11,7 @@ To use this image in your own Dockerfiles, add it to your FROM statement:
     FROM jkilbride/php-fpm-alpine
 
 ---
-As an update, I have also added a simple `.profile` to the `/root` directory for times when I need to login to the container and look around. (I was getting tired of typing `alias ll="ls -lFa"` every time I needed to login...) To use it, type `. /root/.profile` at the command prompt. Be aware that I prefer `vi` keybindings. If you prefer the default `emacs` keybindings, simply type `set -o emacs` at the prompt.
+I have customized the shell by adding `aliases.sh` to the `/etc/profile.d` directory and enabling the `color_prompt.sh` file. Be aware that I prefer `vi` keybindings. If you prefer the default `emacs` keybindings, type `set -o emacs` at the command prompt.
 
 ## Nginx
 
