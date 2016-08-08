@@ -1,6 +1,8 @@
 # PHP-FPM Docker Image on Alpine
 
+[![](https://images.microbadger.com/badges/version/jkilbride/php-fpm-alpine.svg)](http://microbadger.com/images/jkilbride/php-fpm-alpine "Get your own version badge on microbadger.com")
 [![](https://images.microbadger.com/badges/image/jkilbride/php-fpm-alpine.svg)](https://microbadger.com/images/jkilbride/php-fpm-alpine "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/license/jkilbride/php-fpm-alpine.svg)](http://microbadger.com/images/jkilbride/php-fpm-alpine "Get your own license badge on microbadger.com")
 
 This is a simple PHP-FPM installation running on Alpine Linux. It utilizes the official alpine:3.4 release and installs PHP packages via apk, the Alpine Linux package manager. Please see the Dockerfile for a list of PHP packages installed. The current apk version for PHP is 5.6.24.
 
