@@ -46,3 +46,9 @@ VOLUME ["/var/www"]
 EXPOSE 9000
 
 CMD ["/usr/bin/php-fpm"]
+
+LABEL org.label-schema.docker.dockerfile="/Dockerfile" \
+      org.label-schema.license="MIT" \
+      org.label-schema.name="PHP-FPM Alpine" \
+      org.label-schema.vcs-type="Git" \
+      org.label-schema.vcs-url="https://github.com/jeff-kilbride/php-fpm-alpine"
