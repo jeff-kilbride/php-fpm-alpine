@@ -3,6 +3,7 @@ FROM alpine:3.4
 MAINTAINER Jeff Kilbride <jeff@kilbride.com>
 
 RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
+  echo "@community http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
   apk add --no-cache php5-fpm \
   php5-bcmath \
   php5-bz2 \
@@ -22,7 +23,7 @@ RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/ap
   php5-pdo_mysql \
   php5-phpmailer \
   php5-redis@testing \
-  php5-xdebug@testing \
+  php5-xdebug@community \
   php5-zip \
   php5-zlib && \
   rm -f /etc/php5/conf.d/xdebug.ini && \
