@@ -2,8 +2,7 @@ FROM alpine:3.5
 
 MAINTAINER Jeff Kilbride <jeff@kilbride.com>
 
-RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
-  apk add --no-cache php5-fpm \
+RUN apk add --no-cache php5-fpm \
   php5-bcmath \
   php5-bz2 \
   php5-ctype \
@@ -11,17 +10,15 @@ RUN echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/ap
   php5-exif \
   php5-ftp \
   php5-gd \
-  php5-geoip@testing \
   php5-imagick \
   php5-json \
   php5-mcrypt \
-  php5-memcached@testing \
+  php5-memcache \
   php5-mysqli \
   php5-opcache \
   php5-openssl \
   php5-pdo_mysql \
   php5-phpmailer \
-  php5-redis@testing \
   php5-xdebug \
   php5-zip \
   php5-zlib && \
