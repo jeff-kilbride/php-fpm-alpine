@@ -1,7 +1,5 @@
 FROM alpine:3.5
 
-MAINTAINER Jeff Kilbride <jeff@kilbride.com>
-
 RUN apk add --no-cache php5-fpm \
   php5-bcmath \
   php5-bz2 \
@@ -45,8 +43,9 @@ EXPOSE 9000
 
 CMD ["/usr/bin/php-fpm"]
 
-LABEL org.label-schema.docker.dockerfile="/Dockerfile" \
-      org.label-schema.license="MIT" \
-      org.label-schema.name="PHP-FPM Alpine" \
-      org.label-schema.vcs-type="Git" \
-      org.label-schema.vcs-url="https://github.com/jeff-kilbride/php-fpm-alpine"
+LABEL maintainer="Jeff Kilbride <jeff@kilbride.com>" \
+  org.label-schema.docker.dockerfile="/Dockerfile" \
+  org.label-schema.license="MIT" \
+  org.label-schema.name="PHP-FPM Alpine" \
+  org.label-schema.vcs-type="Git" \
+  org.label-schema.vcs-url="https://github.com/jeff-kilbride/php-fpm-alpine"
