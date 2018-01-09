@@ -1,41 +1,40 @@
-FROM alpine:3.7
+FROM alpine:3.5
 
-RUN apk add --no-cache php7-fpm \
-  php7-bcmath \
-  php7-bz2 \
-  php7-ctype \
-  php7-curl \
-  php7-exif \
-  php7-ftp \
-  php7-gd \
-  php7-imagick \
-  php7-json \
-  php7-mcrypt \
-  php7-memcached \
-  php7-mysqli \
-  php7-opcache \
-  php7-openssl \
-  php7-pdo_mysql \
-  php7-redis \
-  php7-xdebug \
-  php7-zip \
-  php7-zlib && \
-  rm -f /etc/php7/conf.d/xdebug.ini && \
+RUN apk add --no-cache php5-fpm \
+  php5-bcmath \
+  php5-bz2 \
+  php5-ctype \
+  php5-curl \
+  php5-exif \
+  php5-ftp \
+  php5-gd \
+  php5-imagick \
+  php5-json \
+  php5-mcrypt \
+  php5-memcache \
+  php5-mysqli \
+  php5-opcache \
+  php5-openssl \
+  php5-pdo_mysql \
+  php5-phpmailer \
+  php5-xdebug \
+  php5-zip \
+  php5-zlib && \
+  rm -f /etc/php5/conf.d/xdebug.ini && \
   sed -i -e "s|;daemonize\s*=.*|daemonize = no|" \
-    /etc/php7/php-fpm.conf && \
-  sed -i -e "s|listen\s*=.*|listen = 9000|" \
+    -e "s|listen\s*=.*|listen = 9000|" \
     -e "s|;clear_env = no|clear_env = no|" \
-    /etc/php7/php-fpm.d/www.conf && \
+    /etc/php5/php-fpm.conf && \
   sed -i -e "s|upload_max_filesize\s*=.*|upload_max_filesize = 100M|" \
     -e "s|max_file_uploads\s*=.*|max_file_uploads = 50|" \
     -e "s|post_max_size\s*=.*|post_max_size = 100M|" \
     -e "s|;cgi.fix_pathinfo\s*=.*|cgi.fix_pathinfo = 1|" \
-    /etc/php7/php.ini && \
+    /etc/php5/php.ini && \
   mv /etc/profile.d/color_prompt /etc/profile.d/color_prompt.sh && \
   mkdir -p /var/www/app/webroot
 
 COPY info.php /var/www/app/webroot/
-COPY config/xdebug.ini /etc/php7/conf.d/
+COPY config/xdebug.ini /etc/php5/conf.d/
 COPY aliases.sh /etc/profile.d/
 
 VOLUME ["/var/www"]
