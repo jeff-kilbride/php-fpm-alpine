@@ -42,7 +42,7 @@ VOLUME ["/var/www"]
 
 EXPOSE 9000
 
-CMD ["/usr/bin/php-fpm"]
+CMD ["/usr/sbin/php-fpm7"]
 
 LABEL maintainer="Jeff Kilbride <jeff@kilbride.com>" \
   org.label-schema.docker.dockerfile="/Dockerfile" \
