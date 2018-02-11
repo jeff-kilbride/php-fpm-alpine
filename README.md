@@ -2,7 +2,7 @@
 
 [![](https://images.microbadger.com/badges/image/jkilbride/php-fpm-alpine.svg)](https://microbadger.com/images/jkilbride/php-fpm-alpine "Get your own image badge on microbadger.com") [![](https://images.microbadger.com/badges/version/jkilbride/php-fpm-alpine.svg)](http://microbadger.com/images/jkilbride/php-fpm-alpine "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/license/jkilbride/php-fpm-alpine.svg)](http://microbadger.com/images/jkilbride/php-fpm-alpine "Get your own license badge on microbadger.com")
 
-This is a simple PHP-FPM installation running on Alpine Linux. It utilizes the official alpine:3.4 release and installs PHP packages via apk, the Alpine Linux package manager. Please see the Dockerfile for a list of PHP packages installed. The current apk version for PHP is 5.6.32.
+This is a simple PHP-FPM installation running on Alpine Linux. It utilizes the official alpine:3.7 release and installs PHP packages via apk, the Alpine Linux package manager. Please see the Dockerfile for a list of PHP packages installed. The current apk version for PHP is 7.1.14.
 
 This image is created to enhance my own workflow. You are more than welcome to use it, if you are interested. NOTE: the image size reported by the MicroBadger.com badge above is WRONG. The current image size is 108 MB.
 
@@ -21,7 +21,7 @@ For a more interesting example, you can inject your own codebase into the `/var/
 
 ## XDebug
 
-After much trial and error, I have discovered that the `php-debug` package for Atom will not listen on the 172.x.x.x network created by `docker-compose`. In order to get XDebug working with Atom, I had to supply a different IP address for my debug client in the `xdebug.ini` file. Please see the comments in this file to get XDebug working with your client. I am using the beta Mac OS X native Docker tools. YMMV.
+After much trial and error, I have discovered that the `php-debug` package for Atom will not listen on the 172.x.x.x network created by `docker-compose`. In order to get XDebug working with Atom, I had to supply a different IP address for my debug client in the `xdebug.ini` file. Please see the comments in this file to get XDebug working with your client. I am using the Mac OS X native Docker tools. YMMV.
 
 ## Maintainer
 
