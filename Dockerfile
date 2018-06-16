@@ -21,6 +21,7 @@ RUN apk add --no-cache php7-fpm \
     php7-redis \
     php7-simplexml \
     php7-xdebug \
+    php7-xml \
     php7-zip && \
     rm -f /etc/php7/conf.d/xdebug.ini && \
     sed -i -e "s|;daemonize\s*=.*|daemonize = no|" \
